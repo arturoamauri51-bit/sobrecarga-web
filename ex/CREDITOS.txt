@@ -1,0 +1,4 @@
+Ilustraciones de ejercicios: Workout Guide, de Bryl Lim (https://github.com/bryllim/workout-guide),
+basado en Everkinetic (https://github.com/everkinetic/data).
+Licencia: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/).
+Cambios: se eligieron 2 cuadros por ejercicio, se redujo la precisión de los trazos y se guardaron en formato JSON.
