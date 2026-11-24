@@ -3,34 +3,267 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex">
-<title>Sobrecarga</title>
+<title>Sobrecarga · Entrenamiento de fuerza a tu medida</title>
+<meta name="description" content="App de entrenamiento para gimnasio, fisicoculturismo, powerlifting, streetlifting y calistenia. Un programa a tu medida, hecho por un entrenador. Gratis durante la beta.">
+<meta property="og:title" content="Sobrecarga · Entrenamiento de fuerza a tu medida">
+<meta property="og:description" content="Un programa a tu medida, hecho por un entrenador. Gratis durante la beta.">
 <meta name="theme-color" content="#0B0D10">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0D10'/%3E%3Crect x='12' y='34' width='9' height='18' rx='2' fill='%23F1EEE8' opacity='.55'/%3E%3Crect x='27.5' y='26' width='9' height='26' rx='2' fill='%23F1EEE8' opacity='.8'/%3E%3Crect x='43' y='17' width='9' height='35' rx='2' fill='%23FF7A3D'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Instrument+Sans:wght@400;500;600;700&display=swap">
 <style>
-:root{--bg:#0B0D10;--card:#14181D;--line:#262C33;--ink:#F1EEE8;--mut:#9AA3AD;--acc:#FF7A3D}
+:root{--bg:#0B0D10;--card:#14181D;--line:#262C33;--ink:#F1EEE8;--mut:#9AA3AD;--acc:#FF7A3D;--acc2:#FF9A66}
 *{box-sizing:border-box}
-html,body{height:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;display:grid;place-items:center;padding:16px}
-.card{max-width:420px;width:100%;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:32px 26px;text-align:center}
-.logo{font-weight:800;letter-spacing:.12em;color:var(--acc);font-size:14px}
-h1{font-size:26px;margin:14px 0 10px}
-p{margin:0;color:#C9C5BE}
-.mut{margin-top:18px;font-size:14px;color:var(--mut)}
-a{color:var(--acc)}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 "Instrument Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.01em;line-height:.95;margin:0}
+h1{font-size:clamp(46px,9vw,92px)}
+h2{font-size:clamp(36px,6vw,58px);margin-bottom:14px}
+h3{font-size:26px}
+.eyebrow{color:var(--acc);font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase}
+.muted{color:var(--mut)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:14px;font-weight:700;text-decoration:none;border:1px solid var(--line);background:var(--card);transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn.pri{background:var(--acc);border-color:var(--acc);color:#1A0C04}
+.btn.pri:hover{background:var(--acc2)}
+nav{position:sticky;top:0;z-index:10;background:rgba(11,13,16,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:10px;font-family:"Big Shoulders Display";font-weight:800;font-size:24px;letter-spacing:.04em;text-decoration:none}
+nav .links{display:flex;gap:22px;align-items:center;font-weight:600;font-size:15px}
+nav .links a{text-decoration:none;color:var(--mut)}nav .links a:hover{color:var(--ink)}
+nav .btn{padding:10px 16px;font-size:15px}
+@media(max-width:720px){nav .links a:not(.btn){display:none}}
+.hero{padding:64px 20px 40px;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.hero p.lead{font-size:20px;color:#D6D2CB;max-width:34ch;margin:22px 0 28px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.hero .note{margin-top:14px;font-size:14px}
+.phone{position:relative;justify-self:center;width:min(300px,78vw);border-radius:38px;padding:10px;background:#1B2027;border:1px solid #2E353D;box-shadow:0 30px 80px -20px rgba(255,122,61,.35)}
+.phone img{display:block;width:100%;border-radius:30px}
+@media(max-width:820px){.hero{grid-template-columns:1fr;padding-top:40px}.phone{margin-top:8px}}
+section{padding:72px 0;border-top:1px solid var(--line)}
+.grid{display:grid;gap:16px}
+.g5{grid-template-columns:repeat(5,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){.g5{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:1fr}}
+@media(max-width:620px){.g2{grid-template-columns:1fr}}
+@media(max-width:560px){.g5{grid-template-columns:1fr}}
+.disc .card{min-width:0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}
+.card h3{margin-bottom:8px}
+.card p{margin:0;color:#C9C5BE}
+.disc .card{padding:18px}
+.disc b{display:block;font-family:"Big Shoulders Display";font-size:22px;text-transform:uppercase;margin-bottom:4px}
+.disc span{font-size:15px;color:var(--mut)}
+.step{display:flex;gap:16px}
+.step .n{flex:0 0 auto;width:44px;height:44px;border-radius:12px;background:rgba(255,122,61,.14);color:var(--acc);display:grid;place-items:center;font-family:"Big Shoulders Display";font-size:24px;font-weight:800}
+.feat .ic{width:42px;height:42px;border-radius:12px;background:rgba(255,122,61,.14);display:grid;place-items:center;margin-bottom:14px;color:var(--acc)}
+.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:28px}
+.shots figure{margin:0;text-align:center}
+.shots img{width:100%;max-width:280px;border-radius:26px;border:1px solid var(--line)}
+.shots figcaption{margin-top:10px;color:var(--mut);font-size:15px}
+@media(max-width:720px){.shots{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:72%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}.shots figure{scroll-snap-align:center}}
+/* credenciales */
+.creds{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.creds span{padding:6px 12px;border-radius:99px;border:1px solid var(--line);font-size:14px;color:#D6D2CB}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--acc);font-size:22px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin:10px 0 0;color:#C9C5BE}
+.final{text-align:center;padding:84px 0}
+.final p{max-width:46ch;margin:16px auto 26px;color:#C9C5BE}
+footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--mut);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+/* Sobre mí */
+.about{display:grid;grid-template-columns:300px 1fr;gap:40px;align-items:start;margin-top:26px}
+@media(max-width:820px){.about{grid-template-columns:1fr;gap:24px}}
+.me{position:relative;aspect-ratio:4/5;border-radius:22px;overflow:hidden;background:linear-gradient(160deg,#1E242B,#12161B);border:1px solid var(--line);display:grid;place-items:center;max-width:300px}
+.me img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block}
+.me .ini{font-family:"Big Shoulders Display";font-weight:800;font-size:96px;color:var(--acc);letter-spacing:.02em}
+.me figcaption{position:absolute;left:0;right:0;bottom:0;padding:14px 16px;background:linear-gradient(transparent,rgba(0,0,0,.75));font-weight:700}
+.me figcaption span{display:block;font-weight:500;font-size:14px;color:var(--mut)}
+.about p{margin:0 0 14px;color:#C9C5BE;max-width:62ch}
+.about h3{margin:26px 0 12px;font-size:24px}
+.tl{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.tl li{display:flex;gap:14px;align-items:baseline;padding:12px 16px;background:var(--card);border:1px solid var(--line);border-radius:14px}
+.tl b{color:var(--ink)}.tl span{color:var(--mut);font-size:15px}
+.tl i{flex:0 0 auto;width:8px;height:8px;border-radius:50%;background:var(--acc);transform:translateY(-2px)}
+.certs{margin-top:34px}
+.certs .head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:14px}
+.cv{position:relative;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.ct{display:flex;gap:16px;width:max-content;animation:cmove var(--dur,40s) linear infinite}
+.cv:hover .ct,.cv:focus-within .ct,.cv.pz .ct{animation-play-state:paused}
+@keyframes cmove{to{transform:translateX(calc(-50% - 8px))}}
+.cert{flex:0 0 auto;width:280px;margin:0;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.cert .pic{aspect-ratio:4/3;background:#fff;display:grid;place-items:center;overflow:hidden}
+.cert .pic img{width:100%;height:100%;object-fit:contain;display:block}
+.cert .pic.ph{background:linear-gradient(150deg,#1D232A,#151A1F);color:var(--acc)}
+.cert figcaption{padding:12px 14px;min-height:88px}
+.cert .pic{cursor:zoom-in}
+.win{display:flex;gap:12px;align-items:center;margin:0 0 16px;padding:12px 16px;border-radius:14px;background:rgba(255,122,61,.1);border:1px solid rgba(255,122,61,.35);color:#F1EEE8;max-width:62ch}
+.win svg{color:var(--acc);flex:0 0 auto}
+.cert figcaption b{display:block;font-size:16px;line-height:1.3}
+.cert figcaption span{color:var(--mut);font-size:14px}
+.cbtn{display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid var(--line);color:var(--mut);border-radius:99px;padding:6px 12px;font:inherit;font-size:14px;cursor:pointer}
+.cbtn:hover{color:var(--ink)}
+@media(prefers-reduced-motion:reduce){.ct{animation:none}.cv{overflow-x:auto;-webkit-mask-image:none;mask-image:none}.cbtn{display:none}}
 </style>
 </head>
 <body>
-<main class="card">
-  <div class="logo">SOBRECARGA</div>
-  <h1 id="t">Correo confirmado</h1>
-  <p id="m">Ya puedes volver a la app y entrar con tu correo y contraseña.</p>
-  <p class="mut">¿Dudas? <a href="mailto:sobrecargasoporte@gmail.com">sobrecargasoporte@gmail.com</a></p>
-</main>
+<nav><div class="wrap">
+  <a class="logo" href="#"><svg viewBox="0 0 64 64" width="30" height="30" aria-hidden="true"><rect x="12" y="34" width="9" height="18" rx="2" fill="#F1EEE8" opacity=".55"/><rect x="27.5" y="26" width="9" height="26" rx="2" fill="#F1EEE8" opacity=".8"/><rect x="43" y="17" width="9" height="35" rx="2" fill="#FF7A3D"/><path d="M14 24 L34 10" stroke="#FF7A3D" stroke-width="4" stroke-linecap="round"/><path d="M26 9 L35 9.5 L32 18" fill="none" stroke="#FF7A3D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>SOBRECARGA</a>
+  <div class="links"><a href="#como">Cómo funciona</a><a href="#funciones">Funciones</a><a href="#sobre-mi">Sobre mí</a><a href="#dudas">Dudas</a><a class="btn pri" href="#descargar">Descargar</a></div>
+</div></nav>
+
+<header class="wrap hero">
+  <div>
+    <span class="eyebrow">App de entrenamiento de fuerza</span>
+    <h1>Entrena con<br>un plan hecho<br><span style="color:var(--acc)">para ti.</span></h1>
+    <p class="lead">Tu disciplina, tu nivel, tu tiempo. Anota tus series y ve cómo avanzas semana a semana.</p>
+    <div class="ctas" id="descargar"><a class="btn pri" href="https://yqtxopjspriaqwvqklql.supabase.co/storage/v1/object/public/app/Sobrecarga.apk"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M7 11l5 5 5-5M5 20h14"/></svg>Descargar para Android</a><a class="btn" href="#como">Cómo funciona</a></div>
+    <p class="note muted">Gratis durante la beta. Por ahora solo para Android.</p>
+  </div>
+  <div class="phone"><img src="s_inicio.webp" alt="Pantalla de inicio de Sobrecarga con el entrenamiento del día" width="390" height="844"></div>
+</header>
+
+<section id="para">
+  <div class="wrap">
+    <span class="eyebrow">Para quién es</span>
+    <h2>Para lo que entrenes</h2>
+    <div class="grid g5 disc" style="margin-top:24px">
+      <div class="card"><b>Gimnasio</b><span>Músculo y fuerza.</span></div>
+      <div class="card"><b>Fisicoculturismo</b><span>Volumen y preparación para competir.</span></div>
+      <div class="card"><b>Powerlifting</b><span>Sentadilla, banca y peso muerto.</span></div>
+      <div class="card"><b>Streetlifting</b><span>Dominadas, fondos y más, con lastre.</span></div>
+      <div class="card"><b>Calistenia</b><span>Habilidades como front lever o planche.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="como">
+  <div class="wrap">
+    <span class="eyebrow">Cómo funciona</span>
+    <h2>Así de simple</h2>
+    <div class="grid g3" style="margin-top:24px">
+      <div class="card step"><div class="n">1</div><div><h3>Cuéntanos de ti</h3><p>Qué entrenas, cuántos días y con qué equipo.</p></div></div>
+      <div class="card step"><div class="n">2</div><div><h3>Entrena y anota</h3><p>Peso, repeticiones y esfuerzo de cada serie.</p></div></div>
+      <div class="card step"><div class="n">3</div><div><h3>Progresa</h3><p>Sabes cuándo subir, cuándo bajar el ritmo y cómo vas.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="funciones">
+  <div class="wrap">
+    <span class="eyebrow">Funciones</span>
+    <h2>Lo que vas a usar</h2>
+    <div class="grid g3" style="margin-top:24px">
+      <div class="card feat"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18l5-6 4 3 7-9"/></svg></div><h3>Qué peso usar</h3><p>Con base en tus series anteriores.</p></div>
+      <div class="card feat"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="6" r="3"/><path d="M8 21v-6l-2-4 6-1 6 1-2 4v6"/></svg></div><h3>Mapa muscular</h3><p>Ve qué músculos llevas bien y cuáles faltan.</p></div>
+      <div class="card feat"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4Z"/></svg></div><h3>Rumbo a tu competencia</h3><p>Un plan por fases hacia tu fecha.</p></div>
+      <div class="card feat"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10Z"/></svg></div><h3>Cardio que suma</h3><p>Sin quitarle a tus pesas.</p></div>
+      <div class="card feat"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg></div><h3>A tu tiempo</h3><p>¿Solo tienes 45 minutos? Haces lo importante.</p></div>
+      <div class="card feat"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14l10-10a3 3 0 0 1 6 6L10 20a3 3 0 0 1-6-6ZM10 10l4 4"/></svg></div><h3>Cuida tus molestias</h3><p>Marca una zona y cambias lo que la carga.</p></div>
+    </div>
+    <div class="shots">
+      <figure><img src="s_inicio.webp" alt="Inicio con el entrenamiento de hoy" loading="lazy" width="390" height="844"><figcaption>Tu entrenamiento de hoy</figcaption></figure>
+      <figure><img src="s_hoy.webp" alt="Pantalla de entrenamiento con series, repeticiones y RIR" loading="lazy" width="390" height="844"><figcaption>Anota cada serie</figcaption></figure>
+      <figure><img src="s_progreso.webp" alt="Resumen de progreso con mapa muscular" loading="lazy" width="390" height="844"><figcaption>Tu progreso</figcaption></figure>
+    </div>
+    <p class="muted" style="font-size:14px;margin-top:10px">Capturas de la app con datos de ejemplo.</p>
+  </div>
+</section>
+
+<section id="sobre-mi">
+  <div class="wrap">
+    <span class="eyebrow">Sobre mí</span>
+    <h2 style="margin-top:6px">Quién está detrás</h2>
+    <div class="about">
+      <figure class="me" style="margin:0">
+        <img src="img/yo.webp" alt="Arturo Amauri Moreno Pérez en tarima, Mr. Novato 2025" width="800" height="1000">
+        <figcaption>Arturo Amauri Moreno Pérez<span>Entrenador personal · creador de Sobrecarga</span></figcaption>
+      </figure>
+      <div>
+        <p>Llevo entre 9 y 10 años entrenando. Empecé con calistenia y después me pasé a las pesas. He competido a nivel regional y mi logro más importante es el primer lugar en Classic Physique Principiantes del Mr. Novato 2025. Hoy sigo preparándome para competir.</p>
+        <div class="win"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></svg><span><b>1.er lugar · Classic Physique Principiantes</b><br>Mr. Novato 2025</span></div>
+        <p>Estudié Cultura Física en la BUAP porque siempre me apasionó el ejercicio y la ciencia detrás. Hoy estudio Sistemas Computacionales, y así nació Sobrecarga: juntar las dos cosas.</p>
+        <p>La hice porque lo que no se mide no se puede mejorar, y porque en streetlifting y calistenia casi no hay nada con un entrenador detrás.</p>
+        <h3>Formación</h3>
+        <ul class="tl">
+          <li><i></i><div><b>Licenciatura en Cultura Física</b><br><span>Benemérita Universidad Autónoma de Puebla (BUAP) · 2021–2025</span></div></li>
+          <li><i></i><div><b>Licenciatura en Sistemas Computacionales</b><br><span>En curso</span></div></li>
+          <li><i></i><div><b>Personal Fitness Trainer (CPT)</b><br><span>National Academy of Sports Medicine (NASM)</span></div></li>
+          <li><i></i><div><b>Certificación de competencia EC0474: Entrenador personal</b><br><span>CONOCER</span></div></li>
+          <li><i></i><div><b>Entrenador Personal orientado al Fitness</b><br><span>Programa con registro ante la STPS</span></div></li>
+          <li><i></i><div><b>Diplomado Internacional: Asesor en Nutrición Fitness y Deportiva</b><br><span>IIAFF e INBA México · 160 h · 2026</span></div></li>
+        </ul>
+      </div>
+    </div>
+    <div class="certs">
+      <div class="head"><div><h3 style="margin:0">Certificados</h3><span class="muted" style="font-size:14px">Toca uno para verlo completo.</span></div><button class="cbtn" type="button" id="cpause" aria-pressed="false">Pausar</button></div>
+      <div class="cv" id="cv" aria-label="Certificados">
+        <div class="ct" id="ct">
+          <!-- Para agregar un certificado: guarda la imagen en img/cert/ y copia un bloque <figure>. -->
+          <figure class="cert"><a class="pic" href="img/cert/buap-cultura-fisica.webp" target="_blank" rel="noopener" data-src="img/cert/buap-cultura-fisica.webp" aria-label="Ver certificado: Licenciatura en Cultura Física"></a><figcaption><b>Licenciatura en Cultura Física</b><span>BUAP · 2021–2025</span></figcaption></figure>
+          <figure class="cert"><a class="pic" href="img/cert/nasm-cpt.webp" target="_blank" rel="noopener" data-src="img/cert/nasm-cpt.webp" aria-label="Ver certificado: Personal Fitness Trainer (CPT)"></a><figcaption><b>Personal Fitness Trainer (CPT)</b><span>National Academy of Sports Medicine</span></figcaption></figure>
+          <figure class="cert"><a class="pic" href="img/cert/ec0474.webp" target="_blank" rel="noopener" data-src="img/cert/ec0474.webp" aria-label="Ver certificado: EC0474 · Entrenador personal"></a><figcaption><b>EC0474 · Entrenador personal</b><span>CONOCER · 2026</span></figcaption></figure>
+          <figure class="cert"><a class="pic" href="img/cert/entrenador-personal-stps.webp" target="_blank" rel="noopener" data-src="img/cert/entrenador-personal-stps.webp" aria-label="Ver certificado: Entrenador Personal orientado al Fitness"></a><figcaption><b>Entrenador Personal orientado al Fitness</b><span>Registro STPS · 2026</span></figcaption></figure>
+          <figure class="cert"><a class="pic" href="img/cert/nutricion-inba.webp" target="_blank" rel="noopener" data-src="img/cert/nutricion-inba.webp" aria-label="Ver certificado: Diplomado Internacional: Asesor en Nutrición Fitness y Deportiva"></a><figcaption><b>Diplomado Internacional: Asesor en Nutrición Fitness y Deportiva</b><span>INBA México · 160 h · 2026</span></figcaption></figure>
+          <figure class="cert"><a class="pic" href="img/cert/nutricion-iiaff.webp" target="_blank" rel="noopener" data-src="img/cert/nutricion-iiaff.webp" aria-label="Ver certificado: Diplomado Internacional: Asesor en Nutrición Fitness y Deportiva"></a><figcaption><b>Diplomado Internacional: Asesor en Nutrición Fitness y Deportiva</b><span>IIAFF · 160 h · 2026</span></figcaption></figure>
+          <figure class="cert"><a class="pic" href="img/cert/fuerza-potencia.webp" target="_blank" rel="noopener" data-src="img/cert/fuerza-potencia.webp" aria-label="Ver certificado: Curso Avanzado en Fuerza y Potencia Muscular"></a><figcaption><b>Curso Avanzado en Fuerza y Potencia Muscular</b><span>Exercise Physiology & Training · 25 h · 2024</span></figcaption></figure>
+          <figure class="cert"><a class="pic" href="img/cert/biomecanica.webp" target="_blank" rel="noopener" data-src="img/cert/biomecanica.webp" aria-label="Ver certificado: Biomecánica, sistemática y programación en el fitness"></a><figcaption><b>Biomecánica, sistemática y programación en el fitness</b><span>Escuela Entreno con Ciencia · 2023</span></figcaption></figure>
+          <figure class="cert"><a class="pic" href="img/cert/icen-hipertrofia.webp" target="_blank" rel="noopener" data-src="img/cert/icen-hipertrofia.webp" aria-label="Ver certificado: Programación avanzada para hipertrofia y composición corporal"></a><figcaption><b>Programación avanzada para hipertrofia y composición corporal</b><span>ICEN · 15 h</span></figcaption></figure>
+          <figure class="cert"><a class="pic" href="img/cert/nasm-diet-exercise.webp" target="_blank" rel="noopener" data-src="img/cert/nasm-diet-exercise.webp" aria-label="Ver certificado: Science of Diet and Exercise (3 cursos)"></a><figcaption><b>Science of Diet and Exercise (3 cursos)</b><span>NASM · 2025</span></figcaption></figure>
+          <figure class="cert"><a class="pic" href="img/cert/science-of-exercise.webp" target="_blank" rel="noopener" data-src="img/cert/science-of-exercise.webp" aria-label="Ver certificado: Science of Exercise"></a><figcaption><b>Science of Exercise</b><span>University of Colorado Boulder · 2026</span></figcaption></figure>
+          <figure class="cert"><a class="pic" href="img/cert/young-athletes.webp" target="_blank" rel="noopener" data-src="img/cert/young-athletes.webp" aria-label="Ver certificado: The Science of Training Young Athletes"></a><figcaption><b>The Science of Training Young Athletes</b><span>University of Florida · 2025</span></figcaption></figure>
+          <figure class="cert"><a class="pic" href="img/cert/unam-obesidad.webp" target="_blank" rel="noopener" data-src="img/cert/unam-obesidad.webp" aria-label="Ver certificado: Nutrición y obesidad: control de sobrepeso"></a><figcaption><b>Nutrición y obesidad: control de sobrepeso</b><span>UNAM · 2025</span></figcaption></figure>
+          <figure class="cert"><a class="pic" href="img/cert/unam-mediciones.webp" target="_blank" rel="noopener" data-src="img/cert/unam-mediciones.webp" aria-label="Ver certificado: Mediciones corporales para la salud"></a><figcaption><b>Mediciones corporales para la salud</b><span>UNAM · 2026</span></figcaption></figure>
+          <figure class="cert"><a class="pic" href="img/cert/unam-planes.webp" target="_blank" rel="noopener" data-src="img/cert/unam-planes.webp" aria-label="Ver certificado: Planes alimentarios para todos"></a><figcaption><b>Planes alimentarios para todos</b><span>UNAM · 2026</span></figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="dudas">
+  <div class="wrap" style="max-width:820px">
+    <span class="eyebrow">Dudas</span>
+    <h2>Preguntas frecuentes</h2>
+    <details><summary>¿Funciona en iPhone?</summary><p>Por ahora solo en Android.</p></details>
+    <details><summary>¿Cómo la instalo?</summary><p>Toca "Descargar para Android" desde tu celular y abre el archivo. Android te pedirá permiso para instalarla.</p></details>
+    <details><summary>¿Necesito saber de entrenamiento?</summary><p>No. Empiezas con ejercicios fáciles y cada término viene explicado.</p></details>
+    <details><summary>¿Necesito internet en el gimnasio?</summary><p>No. Tus series se guardan en el teléfono y se suben cuando hay señal.</p></details>
+    <details><summary>¿Puedo guardar mis datos?</summary><p>Sí, desde Perfil exportas todo tu historial.</p></details>
+    <details><summary>¿Qué pasa con mis datos?</summary><p>Solo sirven para tu plan. No se venden ni se comparten, y puedes borrar tu cuenta cuando quieras. <a href="privacidad.html">Aviso de privacidad</a>.</p></details>
+    <details><summary>¿Cuánto cuesta?</summary><p>Es gratis durante la beta.</p></details>
+    <details><summary>¿En qué se basa?</summary><p>En libros y estudios de entrenamiento, y en mi experiencia con atletas.</p></details>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Empieza hoy</h2>
+    <p>Gratis durante la beta.</p>
+    <a class="btn pri" href="https://yqtxopjspriaqwvqklql.supabase.co/storage/v1/object/public/app/Sobrecarga.apk">Descargar para Android</a>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <span>© 2026 Sobrecarga · <a href="privacidad.html">Aviso de privacidad</a></span>
+  <span>Contacto: <a href="mailto:sobrecargasoporte@gmail.com">sobrecargasoporte@gmail.com</a></span>
+</div></footer>
 <script>
-(function(){var h=location.hash+location.search;
-if(/error/.test(h)){document.getElementById('t').textContent='El enlace ya no es válido';document.getElementById('m').textContent='Puede que ya lo hayas usado o que haya caducado. Vuelve a la app e intenta entrar; si no puedes, pide otro correo desde ahí.';}
-else if(/type=recovery/.test(h)){document.getElementById('t').textContent='Vuelve a la app';document.getElementById('m').textContent='Para cambiar tu contraseña, usa el código que te llegó por correo dentro de la app.';}
-if(location.hash)history.replaceState(null,'',location.pathname);})();
+/* Carrusel de certificados: avanza solo; se pausa al tocarlo, al pasar el mouse o con el botón. Si falta la imagen, muestra un sello. */
+(function(){var ct=document.getElementById('ct'),cv=document.getElementById('cv'),b=document.getElementById('cpause');if(!ct)return;
+  var seal='<svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M9 14.5 8 22l4-2 4 2-1-7.5"/><path d="m9.5 9 1.8 1.8L14.8 7.5"/></svg>';
+  var n=ct.children.length;Array.prototype.slice.call(ct.children).forEach(function(f){var k=f.cloneNode(true);k.setAttribute('aria-hidden','true');k.querySelectorAll('a').forEach(function(a){a.tabIndex=-1});ct.appendChild(k)});
+  ct.querySelectorAll('.pic').forEach(function(p){var i=new Image();i.alt='';i.onload=function(){p.appendChild(i)};i.onerror=function(){p.classList.add('ph');p.innerHTML=seal};i.src=p.dataset.src;
+    var c=p.parentNode.querySelector('b');if(c)i.alt='Certificado: '+c.textContent});
+  ct.style.setProperty('--dur',Math.max(20,n*5)+'s');
+  cv.addEventListener('touchstart',function(){cv.classList.add('pz')},{passive:true});cv.addEventListener('touchend',function(){setTimeout(function(){if(b.getAttribute('aria-pressed')!=='true')cv.classList.remove('pz')},1500)});
+  b.addEventListener('click',function(){var on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',on);b.textContent=on?'Reanudar':'Pausar';cv.classList.toggle('pz',on)});
+})();
 </script>
 </body>
 </html>
