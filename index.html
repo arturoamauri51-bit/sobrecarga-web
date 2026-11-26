@@ -116,6 +116,18 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .cbtn{display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid var(--line);color:var(--mut);border-radius:99px;padding:6px 12px;font:inherit;font-size:14px;cursor:pointer}
 .cbtn:hover{color:var(--ink)}
 @media(prefers-reduced-motion:reduce){.ct{animation:none}.cv{overflow-x:auto;-webkit-mask-image:none;mask-image:none}.cbtn{display:none}}
+/* aviso al volver del correo de confirmación */
+.ok-ov{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:20px;background:rgba(6,8,10,.82);backdrop-filter:blur(6px)}
+.ok-ov[hidden]{display:none}
+.ok-card{width:min(440px,100%);background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px 26px;text-align:center;box-shadow:0 30px 80px -20px rgba(255,122,61,.35)}
+.ok-ic{width:64px;height:64px;margin:0 auto 16px;border-radius:50%;display:grid;place-items:center;background:rgba(255,122,61,.14);color:var(--acc)}
+.ok-ic.bad{background:rgba(154,163,173,.14);color:var(--mut)}
+.ok-card h2{font-size:clamp(32px,8vw,44px);margin-bottom:10px}
+.ok-card p{margin:0 0 12px;color:#C9C5BE}
+.ok-card ol{text-align:left;margin:4px 0 20px;padding-left:22px;color:#D6D2CB}
+.ok-card ol li{margin-bottom:6px}
+.ok-card .btn{width:100%;justify-content:center;cursor:pointer;font:inherit;font-weight:700}
+.ok-card small{display:block;margin-top:14px;color:var(--mut);font-size:14px}
 </style>
 </head>
 <body>
@@ -308,6 +320,41 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   ct.style.setProperty('--dur',Math.max(20,n*5)+'s');
   cv.addEventListener('touchstart',function(){cv.classList.add('pz')},{passive:true});cv.addEventListener('touchend',function(){setTimeout(function(){if(b.getAttribute('aria-pressed')!=='true')cv.classList.remove('pz')},1500)});
   b.addEventListener('click',function(){var on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',on);b.textContent=on?'Reanudar':'Pausar';cv.classList.toggle('pz',on)});
+})();
+</script>
+<div class="ok-ov" id="okov" hidden role="dialog" aria-modal="true" aria-labelledby="okt"><div class="ok-card" id="okcard"></div></div>
+<script>
+/* Al confirmar el correo, Supabase manda aquí con datos en la URL (#access_token…&type=signup, ?code=… o #error…).
+   Mostramos un aviso claro y quitamos esos datos de la dirección. */
+(function(){var h=new URLSearchParams(location.hash.slice(1)),q=new URLSearchParams(location.search);
+  function g(k){return h.get(k)||q.get(k)}
+  var err=g('error')||g('error_code'),tipo=g('type'),tok=g('access_token')||g('code')||g('token_hash');
+  if(!err&&!tok&&!tipo)return;
+  var ok='<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
+      bad='<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.5v.01"/></svg>',
+      sop='<small>¿Dudas? Escríbenos a <a href="mailto:sobrecargasoporte@gmail.com">sobrecargasoporte@gmail.com</a></small>',
+      html;
+  if(err){
+    html='<div class="ok-ic bad">'+bad+'</div><h2 id="okt">Este enlace ya no sirve</h2>'+
+      '<p>Venció o ya se usó. Si ya habías confirmado tu correo antes, no tienes que hacer nada más.</p>'+
+      '<ol><li>Abre la app Sobrecarga.</li><li>Inicia sesión con tu correo y contraseña.</li><li>Si te dice que falta confirmar, regístrate de nuevo para recibir otro correo.</li></ol>'+
+      '<button class="btn pri" id="okx">Entendido</button>'+sop;
+  }else if(tipo==='email_change'){
+    html='<div class="ok-ic">'+ok+'</div><h2 id="okt">Listo, correo actualizado</h2>'+
+      '<p>Ya puedes cerrar esta página y volver a la app Sobrecarga.</p><button class="btn pri" id="okx">Entendido</button>'+sop;
+  }else{
+    html='<div class="ok-ic">'+ok+'</div><h2 id="okt">¡Listo! Tu cuenta quedó confirmada</h2>'+
+      '<p>No tienes que hacer nada más en esta página.</p>'+
+      '<ol><li>Cierra esta página y regresa a la app Sobrecarga.</li><li>Inicia sesión con el correo y la contraseña que registraste.</li></ol>'+
+      '<button class="btn pri" id="okx">Entendido</button>'+sop;
+  }
+  var ov=document.getElementById('okov');document.getElementById('okcard').innerHTML=html;ov.hidden=false;
+  try{history.replaceState(null,'',location.pathname)}catch(e){}
+  function cerrar(){ov.hidden=true}
+  document.getElementById('okx').addEventListener('click',cerrar);
+  ov.addEventListener('click',function(e){if(e.target===ov)cerrar()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')cerrar()});
+  document.getElementById('okx').focus();
 })();
 </script>
 </body>
