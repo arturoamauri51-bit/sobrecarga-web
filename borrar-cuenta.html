@@ -3,61 +3,64 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Borrar mi cuenta · Sobrecarga</title>
-<meta name="description" content="Cómo eliminar tu cuenta de Sobrecarga y qué datos se borran.">
+<title>Borrar tu cuenta · Sobrecarga</title>
+<meta name="description" content="Cómo borrar tu cuenta de Sobrecarga y qué datos se eliminan.">
 <meta name="theme-color" content="#0B0D10">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0D10'/%3E%3Crect x='12' y='34' width='9' height='18' rx='2' fill='%23F1EEE8' opacity='.55'/%3E%3Crect x='27.5' y='26' width='9' height='26' rx='2' fill='%23F1EEE8' opacity='.8'/%3E%3Crect x='43' y='17' width='9' height='35' rx='2' fill='%23FF7A3D'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=Instrument+Sans:wght@400;600;700&display=swap">
 <style>
 :root{--bg:#0B0D10;--card:#14181D;--line:#262C33;--ink:#F1EEE8;--mut:#9AA3AD;--acc:#FF7A3D}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "Instrument Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:720px;margin:0 auto;padding:40px 20px 60px}
 a{color:var(--acc)}
-.wrap{max-width:760px;margin:0 auto;padding:0 20px}
-nav{border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;align-items:center;height:64px}
-.logo{display:flex;align-items:center;gap:10px;font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:800;font-size:24px;letter-spacing:.04em;text-decoration:none;color:var(--ink)}
-h1,h2{font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:800;text-transform:uppercase;line-height:1;margin:0}
-h1{font-size:clamp(40px,8vw,64px);margin:48px 0 8px}
-h2{font-size:28px;margin:40px 0 10px}
-p,li{color:#D6D2CB}
-ul{padding-left:22px}
-li{margin-bottom:6px}
+h1{font-size:34px;line-height:1.1;margin:0 0 8px}
+h2{font-size:21px;margin:32px 0 10px}
 .muted{color:var(--mut)}
-.box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-top:20px}
-footer{border-top:1px solid var(--line);margin-top:56px;padding:28px 0 40px;color:var(--mut);font-size:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:14px 0}
+ol,ul{padding-left:22px}
+li{margin-bottom:6px}
+.back{display:inline-block;margin-bottom:24px;color:var(--mut);text-decoration:none}
 </style>
 </head>
 <body>
-<nav><div class="wrap"><a class="logo" href="./"><svg viewBox="0 0 64 64" width="30" height="30" aria-hidden="true"><rect x="12" y="34" width="9" height="18" rx="2" fill="#F1EEE8" opacity=".55"/><rect x="27.5" y="26" width="9" height="26" rx="2" fill="#F1EEE8" opacity=".8"/><rect x="43" y="17" width="9" height="35" rx="2" fill="#FF7A3D"/></svg>SOBRECARGA</a></div></nav>
-<main class="wrap">
-<h1>Borrar mi cuenta</h1>
-<p class="muted">Sobrecarga · Amauri Coaching</p>
+<main>
+<a class="back" href="./">← Sobrecarga</a>
+<h1>Borrar tu cuenta de Sobrecarga</h1>
+<p class="muted">App Sobrecarga, de Amauri Coaching.</p>
 
-<h2>Desde la app</h2>
-<ul>
-<li>Abre Sobrecarga y entra a <b>Perfil</b>.</li>
-<li>Toca <b>Respaldo y cuenta</b> y luego <b>Eliminar mi cuenta</b>.</li>
-<li>Escribe <b>ELIMINAR</b> para confirmar.</li>
-</ul>
-<p>Si quieres conservar tu historial, antes toca <b>Exportar respaldo</b>.</p>
-
-<h2>Sin la app</h2>
-<p>Escríbeme a <a href="mailto:sobrecargasoporte@gmail.com?subject=Borrar%20mi%20cuenta&amp;body=Quiero%20borrar%20mi%20cuenta%20de%20Sobrecarga.">sobrecargasoporte@gmail.com</a> desde el correo con el que te registraste, con el asunto «Borrar mi cuenta». La borro en un máximo de 7 días y te confirmo por correo.</p>
-
-<div class="box">
-<h2 style="margin-top:0">Qué se borra</h2>
-<ul>
-<li>Tu cuenta y tu perfil.</li>
-<li>Tu programa, tus sesiones, tu historial y tus marcas.</li>
-<li>Los datos de tu reloj que se hayan guardado.</li>
-</ul>
-<p style="margin-bottom:0">Solo queda un registro de la baja con tu correo, tu nombre y el motivo (si diste uno). Si quieres que también se borre, pídelo en el mismo correo.</p>
+<h2>Opción 1: desde la app</h2>
+<div class="card">
+<ol>
+<li>Abre Sobrecarga e inicia sesión.</li>
+<li>Ve a <b>Perfil › Respaldo y cuenta</b>.</li>
+<li>Si quieres conservar una copia, toca primero <b>Exportar respaldo</b>.</li>
+<li>Toca <b>Eliminar mi cuenta</b>, escribe <b>ELIMINAR</b> y confirma.</li>
+</ol>
+<p>Tu cuenta se borra al momento.</p>
 </div>
 
-<p class="muted" style="margin-top:28px">Más detalles en el <a href="privacidad.html">aviso de privacidad</a>.</p>
+<h2>Opción 2: por correo</h2>
+<div class="card">
+<p>Escribe a <a href="mailto:sobrecargasoporte@gmail.com?subject=Borrar%20mi%20cuenta%20de%20Sobrecarga">sobrecargasoporte@gmail.com</a> desde el correo con el que te registraste, con el asunto «Borrar mi cuenta». La borramos en un plazo máximo de 30 días y te confirmamos por correo.</p>
+<p>Por ese mismo correo también puedes pedir que borremos solo una parte de tus datos (por ejemplo, tu historial de entrenamientos) sin borrar la cuenta.</p>
+</div>
+
+<h2>Qué se borra</h2>
+<ul>
+<li>Tu cuenta: correo, nombre y contraseña.</li>
+<li>Tu perfil de entrenamiento, tu programa y tu historial de sesiones, récords y marcas.</li>
+<li>Tus registros de peso, medidas, sueño, fatiga y molestias.</li>
+<li>Los datos de tu reloj que la app guardó desde Health Connect (pasos, pulso, variabilidad del pulso y sueño).</li>
+</ul>
+
+<h2>Qué se conserva</h2>
+<ul>
+<li>Para que la prueba gratis sea una por persona, se puede conservar un código de tu correo que no se puede volver a leer y el número interno que Android le asigna a la app en tu teléfono. No permiten saber quién eres ni ver tus datos.</li>
+<li>Si pagaste una membresía, los comprobantes de pago se guardan el tiempo que exige la ley.</li>
+</ul>
+<p class="muted">Las fotos de progreso nunca salen de tu teléfono: se borran cuando borras la app.</p>
+
+<h2>Dudas</h2>
+<p>Escríbenos a <a href="mailto:sobrecargasoporte@gmail.com">sobrecargasoporte@gmail.com</a>.</p>
 </main>
-<footer><div class="wrap">© 2026 Sobrecarga · <a href="./">Volver al inicio</a></div></footer>
 </body>
 </html>
